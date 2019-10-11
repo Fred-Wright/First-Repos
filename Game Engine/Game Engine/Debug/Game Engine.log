@@ -1,0 +1,9 @@
+﻿  gameManager.cpp
+C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(44,37): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(44,37): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(48,37): warning C4474: 'printf' : too many arguments passed for format string
+  Input.cpp
+  main.cpp
+  Generating Code...
+C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(48,37): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  Game Engine.vcxproj -> C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\Debug\Game Engine.exe
