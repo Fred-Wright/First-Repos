@@ -23,7 +23,7 @@ void Image() {
 		g_Image = NULL;
 		g_Image = SDL_LoadBMP("assets/Untitled.bmp");
 		g_Surface = SDL_GetWindowSurface(game->g_window);
-		//SDL_FillRect(g_Surface, NULL, SDL_MapRGB(g_Surface->format, 255, 0, 0));
+		SDL_FillRect(g_Surface, NULL, SDL_MapRGBA(g_Surface->format, 0,0,0,255)); //SDL_MapRGB(g_Surface->format, 255, 0, 0)
 		SDL_BlitSurface(g_Image, NULL, g_Surface, NULL);
 	
 
@@ -32,19 +32,24 @@ void Image() {
 int main(int argc, char* argv[])
 {
 	
+	Image();
+	int x;
 
-		
-	
+	for (int x = 1; x < 100; x++) {
+
+	}
+
+
 	bool quit = false;
 
 	while (!quit) 
 	{
-		SDL_UpdateWindowSurface(game->g_window);
+		//
 		SDL_RenderClear(game->g_renderer);
 		SDL_Event s_Event;
 		
-		Image();
-
+		
+		
 
 		while (SDL_PollEvent(&s_Event)) 
 		{
@@ -65,10 +70,15 @@ int main(int argc, char* argv[])
 				red = x;
 				green = y;
 
-				game->setDispColor(x, y);
+				//game->setDispColor(x, y);
+
+				//g_Surface = SDL_GetWindowSurface(game->g_window);
+				SDL_FillRect(g_Surface, NULL, SDL_MapRGBA(g_Surface->format, x, y, 0, 255));
+				SDL_BlitSurface(g_Image, NULL, g_Surface, NULL);
 			}
 
 		}
+		SDL_UpdateWindowSurface(game->g_window);
 	}
 
 	SDL_FreeSurface(g_Image);
