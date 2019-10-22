@@ -1,31 +1,27 @@
 #pragma once
 #include "SDL.h"
+#include "SDL_image.h"
 #include <cstdio>
 #include <string>
 
-struct SDL_Window;
-struct SDL_Renderer;
-
-
-
 class Game {
 
-private:
-	
-
-	
 public:
-	
 	Game();
 	~Game();
-	SDL_Window* g_window;
-	SDL_Renderer* g_renderer;
-	//SDL_Surface* g_Surface;
-	//SDL_Surface* g_Image;
 
+	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
 
-	void Update(void);
+	void HandleEvents();
+	void Update();
+	void Render();
+	void Clean();
+	bool Running();
+	static SDL_Renderer* renderer;
 
-	void setDispColor(int x, int y);
-	//void loadSprite(std::string file);
+private:
+	bool isRunning;
+	SDL_Window* window;
+	int counter = 0;
+
 };

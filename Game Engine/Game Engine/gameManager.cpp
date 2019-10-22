@@ -1,114 +1,119 @@
 #include "gameManager.h"
 #include "SDL.h"
-#include <cstdio>
 #include "SDL_render.h"
-#include <string>
+#include "TextureManager.h"
+#include <iostream>
+#include "GameObject.h"
+#include "Tilemap.h"
 
-class Bitmap;
+GameObject* player;
+GameObject* enemy;
+Map* map;
 
+SDL_Renderer* Game::renderer = nullptr;
 
-Game::Game() {
-
-	g_window = nullptr;
-	g_renderer = nullptr;
-
-	SDL_Init(SDL_INIT_VIDEO);
-
-	g_window = SDL_CreateWindow(
-		"Game Launcher",
-		250,
-		50,
-		640,
-		480,
-		0
-	);
-
-	g_renderer = SDL_CreateRenderer(
-		g_window,
-		-1,
-		0
-	);
-
-	if (g_renderer) {
-		int i_Renderer = SDL_SetRenderDrawColor(
-			g_renderer,
-			255,
-			0,
-			0,
-			255
-		);
-
-	}
-
-	if (!g_window) {
-		printf(R"(Failiure)", SDL_GetError());
-	}
-
-	if (!g_renderer) {
-		printf(R"(Failiure)", SDL_GetError());
-	}
-};
-
-void Game::Update(void) 
+Game::Game()
 {
-	SDL_RenderClear(g_renderer);
-
-	
-
-	SDL_RenderPresent(g_renderer);
-
-}
-/*
-void Game::loadSprite(std::string file) {
-
-	
-	g_Surface = SDL_GetWindowSurface(g_window);
-	
-	g_Image = SDL_LoadBMP("Untitled.bmp");
-	SDL_BlitSurface(g_Image, NULL, g_Surface, NULL);
-	SDL_FillRect(g_Surface, NULL, SDL_MapRGB(g_Surface->format, 255, 0, 0));
-	
 
 }
 
-*/
-
-Game::~Game() {
-
-
-	if (g_renderer) {
-		SDL_DestroyRenderer(g_renderer);
-	}
-
-	if (g_window) {
-		SDL_DestroyWindow(g_window);
-	}
-
-	//SDL_FreeSurface(g_Image);
-
-}
-
-
-void Game::setDispColor(int x, int y)
+Game::~Game()
 {
-	if (g_renderer) {
-		int i_Renderer = SDL_SetRenderDrawColor(
-			g_renderer,
-			x,
-			y,
-			0,
-			255
-		);
 
-		SDL_RenderClear(g_renderer);
+}
 
-		SDL_RenderPresent(g_renderer);
 
+
+void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) 
+{
+	int flags = 0;
+	if (fullscreen) {
+		flags = SDL_WINDOW_FULLSCREEN;
+	}
+
+
+	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) 
+	{
+		std::cout << "initialised!" << std::endl;
+
+		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+
+		if (window) 
+		{
+			std::cout << "Window created!" << std::endl;
+		}
+
+		renderer = SDL_CreateRenderer(window, -1, 0);
+
+		if (renderer)
+		{
+			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+			std::cout << "Renderer created!" << std::endl;
+		}
+		
+		isRunning = true;
+
+	}
+	
+	player = new GameObject("assets/Player.png", 0, 0, 0.5);
+	enemy = new GameObject("assets/enemy.png", 100, 100, 0.5);
+	map = new Map();
+
+}
+
+void Game::HandleEvents()
+{
+
+	SDL_Event event;
+	SDL_PollEvent(&event);
+	switch (event.type){
+		case SDL_QUIT:
+			isRunning = false;
+			break;
+
+	default:
+		break;
 	}
 
 }
 
-SDL_Surface* s_Surface;
-SDL_Surface* s_Image;
+void Game::Render()
+{
+
+	SDL_RenderClear(renderer);
+	map->DrawMap();
+	player->Render();
+	enemy->Render();
+	
+
+	SDL_RenderPresent(renderer);
+
+}
+
+void Game::Clean()
+{
+	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(renderer);
+	SDL_Quit();
+	std::cout << "game cleaned" << std::endl;
+}
+
+void Game::Update()
+{
+
+	player->Update();
+	enemy->Update();
+}
+
+
+
+
+bool Game::Running()
+{
+	return true;
+}
+
+
+
 
 

@@ -1,88 +1,39 @@
-#include "SDL.h"
-#include <cstdio>
 #include "gameManager.h"
-#include <iostream>
 
-/*
-	surface = SDL_GetWindowSurface(window);
+Game *game = nullptr;
 
-	image = SDL_LoadBMP("Untitled.bmp");
-
-	SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 255, 0, 0));
-	SDL_BlitSurface(image, NULL, surface, NULL);
-	
-}
-*/
-
-SDL_Surface* g_Surface;
-SDL_Surface* g_Image;
-Game* game = new Game();
-
-void Image() {
-	g_Surface = NULL;
-		g_Image = NULL;
-		g_Image = SDL_LoadBMP("assets/Untitled.bmp");
-		g_Surface = SDL_GetWindowSurface(game->g_window);
-		SDL_FillRect(g_Surface, NULL, SDL_MapRGBA(g_Surface->format, 0,0,0,255)); //SDL_MapRGB(g_Surface->format, 255, 0, 0)
-		SDL_BlitSurface(g_Image, NULL, g_Surface, NULL);
-	
-
-}
 
 int main(int argc, char* argv[])
 {
-	
-	Image();
-	int x;
 
-	for (int x = 1; x < 100; x++) {
+	const int FPS = 60;
+	const int frameDelay = 1000 / FPS;
 
-	}
+	Uint32 frameStart;
+	int frameTime;
 
+	game = new Game();
 
-	bool quit = false;
+	game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, false);
 
-	while (!quit) 
-	{
-		//
-		SDL_RenderClear(game->g_renderer);
-		SDL_Event s_Event;
-		
-		
-		
+	while (game->Running()) {
 
-		while (SDL_PollEvent(&s_Event)) 
+		frameStart = SDL_GetTicks();
+
+		game->HandleEvents();
+		game->Update();
+		game->Render();
+
+		frameTime = SDL_GetTicks() - frameStart;
+
+		if (frameDelay > frameTime) 
 		{
-			if (s_Event.type == SDL_KEYDOWN) 
-			{
-				if (s_Event.key.keysym.sym == SDLK_ESCAPE)
-				{
-					quit = true;
-				}
-			}
-
-			if (s_Event.type == SDL_MOUSEMOTION) 
-			{
-				int x, y;
-				int red, green;
-				SDL_GetMouseState(&x, &y);
-				std::cout << x << " " << y << std::endl;
-				red = x;
-				green = y;
-
-				//game->setDispColor(x, y);
-
-				//g_Surface = SDL_GetWindowSurface(game->g_window);
-				SDL_FillRect(g_Surface, NULL, SDL_MapRGBA(g_Surface->format, x, y, 0, 255));
-				SDL_BlitSurface(g_Image, NULL, g_Surface, NULL);
-			}
-
+			SDL_Delay(frameDelay - frameTime);
 		}
-		SDL_UpdateWindowSurface(game->g_window);
-	}
 
-	SDL_FreeSurface(g_Image);
-	delete game;
-	game = nullptr;
+	}
+	game->Clean();
+
+
 	return 0;
 }
