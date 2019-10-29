@@ -27,6 +27,8 @@
     <ClCompile Include="Tilemap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Componenets.h" />
+    <ClInclude Include="ECS.h" />
     <ClInclude Include="gameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Input.h" />

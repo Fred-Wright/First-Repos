@@ -7,19 +7,15 @@ class Game {
 
 public:
 	Game();
-	Game~();
+	~Game();
 
-	void init(const car* title, int xpos, int ypos, int width, int height, bool fullscreen);
+	void Update(void);
+	void setDispColor(int x, int y);
+	SDL_Window * g_window;
+	SDL_Renderer* g_renderer;
 
-	void HandleEvents();
-	void Update();
-	void Render();
-	void Clean();
-	bool Running();
 
-private:
-	bool isRunning;
-	SDL_Window *window;
-	SDL_Renderer* renderer;
+
+	
 
 };
