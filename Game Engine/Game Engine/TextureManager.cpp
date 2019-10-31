@@ -5,8 +5,6 @@ SDL_Texture* TextureManager::LoadTexture(const char* textrue)
 {
 
 	SDL_Surface* tempSurface = IMG_Load(textrue);
-	int h = tempSurface->h;
-	int w = tempSurface->w;
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(Game::renderer, tempSurface);
 	SDL_FreeSurface(tempSurface);
 

@@ -7,9 +7,7 @@
 class Game {
 
 public:
-	Game();
-	~Game();
-
+	
 	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
 
 	void HandleEvents();
@@ -18,6 +16,7 @@ public:
 	void Clean();
 	bool Running();
 	static SDL_Renderer* renderer;
+	static SDL_Event event;
 
 private:
 	bool isRunning;

@@ -1,23 +1,19 @@
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\vc142.pdb
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\vc142.idb
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\vector2d.obj
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\tilemap.obj
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\texturemanager.obj
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\main.obj
-c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\input.obj
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\gameobject.obj
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\gamemanager.obj
-c:\users\fred wright\desktop\game engine\game engine\debug\vc142.pdb
-c:\users\fred wright\desktop\game engine\game engine\debug\vc142.idb
-c:\users\fred wright\desktop\game engine\game engine\debug\gamemanager.obj
-c:\users\fred wright\desktop\game engine\game engine\debug\input.obj
-c:\users\fred wright\desktop\game engine\game engine\debug\main.obj
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\keyboardcontrol.obj
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\collision.obj
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.exe
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.ilk
 c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.pdb
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.exe
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.ilk
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.pdb
-c:\users\fred wright\desktop\game engine\game engine\debug\bitmap.obj
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.tlog\cl.command.1.tlog
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.tlog\cl.read.1.tlog
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.tlog\cl.write.1.tlog
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.tlog\link.command.1.tlog
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.tlog\link.read.1.tlog
-c:\users\fred wright\desktop\game engine\game engine\debug\game engine.tlog\link.write.1.tlog
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.tlog\cl.command.1.tlog
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.tlog\cl.read.1.tlog
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.tlog\cl.write.1.tlog
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.tlog\link.command.1.tlog
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.tlog\link.read.1.tlog
+c:\users\fred wright\documents\github\first-repos\game engine\game engine\debug\game engine.tlog\link.write.1.tlog

@@ -1,33 +1,22 @@
 #include "gameManager.h"
-#include "SDL.h"
-#include "SDL_render.h"
 #include "TextureManager.h"
 #include <iostream>
-#include "GameObject.h"
 #include "Tilemap.h"
-#include "Componenets.h"
-#include "ECS.h"
+#include "ECS/Components.h"
+#include "Vector2D.h"
+#include "Collision.h"
 
-GameObject* player;
-GameObject* enemy;
 Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
 Manager manager;
-auto& newPlayer(manager.addEntity());
+
+auto& player(manager.addEntity());
+auto& playertwo(manager.addEntity());
+auto& wall(manager.addEntity());
 
 
-
-Game::Game()
-{
-
-}
-
-Game::~Game()
-{
-
-}
-
+SDL_Event Game::event;
 
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) 
@@ -61,25 +50,35 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	}
 	
-	player = new GameObject("assets/Player.png", 0, 0, 0.5);
-	enemy = new GameObject("assets/enemy.png", 100, 100, 0.5);
 	map = new Map();
 
-	newPlayer.addComponent<PositionComponent>();
-	newPlayer.getComponent<PositionComponent>().setPos(500, 500);
+	player.addComponent<TransformComponent>(300,300);
+	player.addComponent<SpriteComponent>("assets/Player.png");
+	player.addComponent<KeyboardController>();
+	//player.addComponent<ColliderComponent>("player");
+
+	playertwo.addComponent<TransformComponent>(100, 100);
+	playertwo.addComponent<SpriteComponent>("assets/Playertwo.png");
+	playertwo.addComponent<KeyboardController>();
+
+
+	wall.addComponent<TransformComponent>(200,200);
+	wall.addComponent<SpriteComponent>("assets/dirt.png");
+	wall.addComponent<KeyboardController>();
+	//wall.addComponent<ColliderComponent>("wall");
+
+
 
 }
 
 void Game::HandleEvents()
 {
-
-	SDL_Event event;
 	SDL_PollEvent(&event);
-	switch (event.type){
-		case SDL_QUIT:
-			isRunning = false;
-			break;
-
+	switch (event.type)
+	{
+	case SDL_QUIT:
+		isRunning = false;
+		break;
 	default:
 		break;
 	}
@@ -91,10 +90,7 @@ void Game::Render()
 
 	SDL_RenderClear(renderer);
 	map->DrawMap();
-	player->Render();
-	enemy->Render();
-	
-
+	manager.draw();
 	SDL_RenderPresent(renderer);
 
 }
@@ -109,12 +105,9 @@ void Game::Clean()
 
 void Game::Update()
 {
-
-	player->Update();
-	enemy->Update();
-
 	manager.update();
-	std::cout << newPlayer.getComponent<PositionComponent>().x() << ", " << newPlayer.getComponent<PositionComponent>().y() << std::endl;
+	manager.refresh();
+	
 }
 
 

@@ -1,0 +1,13 @@
+﻿  gameManager.cpp
+  GameObject.cpp
+C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\GameObject.cpp(36,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+  TextureManager.cpp
+  Tilemap.cpp
+  Vector2D.cpp
+C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\GameObject.cpp(37,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 246 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Game Engine.vcxproj -> C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\Release\Game Engine.exe
