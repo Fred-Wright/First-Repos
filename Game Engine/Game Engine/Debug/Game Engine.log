@@ -1,14 +1,2 @@
-﻿  gameManager.cpp
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\Sprite.h(55,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\Sprite.h(56,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\ECS.h(73,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\ECS.h(73,33): warning C4244:         with
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\ECS.h(73,33): warning C4244:         [
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\ECS.h(73,33): warning C4244:             _Ty=int
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\ECS\ECS.h(73,33): warning C4244:         ]
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(55): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int>(int &&,int &&)' being compiled
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(55): message :         with
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(55): message :         [
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(55): message :             T=TransformComponent
-C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\gameManager.cpp(55): message :         ]
+﻿  Tilemap.cpp
   Game Engine.vcxproj -> C:\Users\Fred Wright\Documents\GitHub\First-Repos\Game Engine\Game Engine\Debug\Game Engine.exe

@@ -12,7 +12,6 @@ SDL_Renderer* Game::renderer = nullptr;
 Manager manager;
 
 auto& player(manager.addEntity());
-auto& playertwo(manager.addEntity());
 auto& wall(manager.addEntity());
 
 
@@ -52,20 +51,15 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	
 	map = new Map();
 
-	player.addComponent<TransformComponent>(300,300);
+	player.addComponent<TransformComponent>(100,100);
 	player.addComponent<SpriteComponent>("assets/Player.png");
 	player.addComponent<KeyboardController>();
-	//player.addComponent<ColliderComponent>("player");
-
-	playertwo.addComponent<TransformComponent>(100, 100);
-	playertwo.addComponent<SpriteComponent>("assets/Playertwo.png");
-	playertwo.addComponent<KeyboardController>();
+	player.addComponent<ColliderComponent>("player");
 
 
 	wall.addComponent<TransformComponent>(200,200);
 	wall.addComponent<SpriteComponent>("assets/dirt.png");
-	wall.addComponent<KeyboardController>();
-	//wall.addComponent<ColliderComponent>("wall");
+	wall.addComponent<ColliderComponent>("wall");
 
 
 
@@ -108,6 +102,12 @@ void Game::Update()
 	manager.update();
 	manager.refresh();
 	
+	if (Collision::AABB(player.getComponent<ColliderComponent>().collider, wall.getComponent<ColliderComponent>().collider))
+	{
+		player.getComponent<TransformComponent>().scale = 1;
+		player.getComponent<TransformComponent>().velocity * -1;
+	}
+
 }
 
 
