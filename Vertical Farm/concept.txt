@@ -125,3 +125,24 @@ water = 0.184p per liter
 1 acre = £6979
 equiptment = £490/m^2
 
+
+
+Things to add:
+
+disclaimer of:
+data used, non-inlusion of workers in calculations, 
+
+Blog
+include bugs, bugfixes, thought processes, development process, 
+
+Add to main menu
+comment code
+clean up code
+make game's text show £ and m^3
+fix game's bakground
+
+
+
+
+
+
