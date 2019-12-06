@@ -139,7 +139,7 @@ Add to main menu
 comment code
 clean up code
 make game's text show £ and m^3
-fix game's bakground
+fix game's background
 
 
 
