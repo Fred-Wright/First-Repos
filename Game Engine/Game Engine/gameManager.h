@@ -17,10 +17,12 @@ public:
 	bool Running();
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
+	SDL_Texture* texture;
+	SDL_Window* window;
 
 private:
 	bool isRunning;
-	SDL_Window* window;
+	
 	int counter = 0;
 
 };

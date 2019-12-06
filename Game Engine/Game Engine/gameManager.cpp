@@ -52,8 +52,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	map = new Map();
 
 	player.addComponent<TransformComponent>(100,100);
-	player.addComponent<SpriteComponent>("assets/Player.png");
-	player.addComponent<KeyboardController>();
+	player.addComponent<SpriteComponent>("assets/MarioRun.png", 3, 100);
+	player.addComponent<PlayerKeyboardController>();
 	player.addComponent<ColliderComponent>("player");
 
 
@@ -61,7 +61,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	wall.addComponent<SpriteComponent>("assets/dirt.png");
 	wall.addComponent<ColliderComponent>("wall");
 
-
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_RenderClear(renderer);
 
 }
 
@@ -87,6 +88,8 @@ void Game::Render()
 	manager.draw();
 	SDL_RenderPresent(renderer);
 
+
+
 }
 
 void Game::Clean()
@@ -101,6 +104,7 @@ void Game::Update()
 {
 	manager.update();
 	manager.refresh();
+
 	
 	if (Collision::AABB(player.getComponent<ColliderComponent>().collider, wall.getComponent<ColliderComponent>().collider))
 	{
@@ -115,7 +119,7 @@ void Game::Update()
 
 bool Game::Running()
 {
-	return true;
+	return isRunning;
 }
 
 

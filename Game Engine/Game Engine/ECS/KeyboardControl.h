@@ -4,7 +4,8 @@
 #include "Components.h"
 
 
-class KeyboardController : public Component
+
+class PlayerKeyboardController : public Component
 {
 
 public:
