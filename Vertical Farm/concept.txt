@@ -1,0 +1,127 @@
+VERTICAL FARMING SIMULATOR
+
+
+-building space
+	-width
+	-height
+
+
+Growing spaces:
+	-lighting
+	-water
+	
+
+Costing:
+
+
+Produce:
+
+
+
+
+
+
+Plan:
+implement building a structure
+	-UI                                         seeds, machinery, structure(metal, tubing,
+	-Materials
+		-cost
+
+
+adding resources to structure
+
+
+add costing to structure
+	-cost of land
+	-cost of structure
+	-cost of seeds
+	-cost of cost of water
+	-cost of workers 
+
+outcomes of growing
+	-volume of output
+	-
+
+
+
+Plan for making:
+
+set up scenes:
+	-main menu
+		-buttons
+	-settings (input specific costing)
+		-default value of costs, but can be inputted by customer
+	-building mode
+		- drag and drop from list on bottom, cant edit width and height, only add extra structure
+		-room (8mx8mx3m)
+		-nessesity for stairs&/or lift
+		-cost to connect rooms
+		-cost to made new tier
+		
+	-saved builds
+		-can be saved to a file, and can be read to be imported
+
+
+
+
+
+Everything is too complicated, this needs to be a simple, quick to use application that doesnt require any fiddly, janky concepts
+only numbers inputted
+
+this "game" is a shadow of what it used to be, it was going to be simple, go into a world where you can use different 
+resources and buildings to make a cool, stylish vertical farm however i evaluated who my target audience is for this. 
+This isnt a game, it has no re-playabilitythe only fun to be had was making a somewhat 'cool' structure using as 
+little resources and making the most profitable farm, but as the target audience for this is a buisness trying to make one, 
+they dont want to take a while to build something, they want it quick and easy... 
+So my idea was then condensed into just spawning into a word where there is only building, 3 clicks, 1 to start in a corner, 
+2nd to finalized making the floor, finally 3rd seeing how high to go, but again this doesnt help, as the audience wants
+this to be fast, they dont was to have to take a while to get the height just right, they just want to input... and so, 
+my idea is finally fully condensed, all the user does is input numbers, then recieve numbers, and a nice little graphic
+shows what the build could look like.
+
+
+
+questions:
+
+
+
+Dimensions: 
+width and height-
+
+	-small: 5m-10m x 5-10m  x 10m-20m min:500m max: 2000m  
+	-medium: 10-30m x 10m-30m x 20m-50m min:2000m max: 45000m 
+	-large: 30m- x 30m- x 50m- 
+	
+dont know- random w&h 
+
+What will be the cost of this land per acre?
+
+-price
+-dont know -inputs default value
+
+Is there already infastructure, you will it need to be built?
+
+yes- continue
+no- 	please input an estimate of the cost to build simple infastructure (not including building the farms):
+		-price added to end
+		-dont know -assumes yes is given to previous question
+
+Will you have sustainable sources of electricity or use the grid:
+yes: no money added
+no: 
+small:-electic: £3000         
+medium:-electric: £6000
+large:-electric: £11000
+
+Will you be selling a veriety of things?
+	-yes
+	-no	-what amount will you roughly recieve per 1kg of produce sold?
+
+
+
+assumptions: 
+water = 50l per m^2 per year
+water = 0.184p per liter
+1 acre = £6979
+equiptment = £490/m^2
+
