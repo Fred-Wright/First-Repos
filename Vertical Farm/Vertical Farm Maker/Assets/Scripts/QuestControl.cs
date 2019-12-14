@@ -181,7 +181,7 @@ public class QuestControl : MonoBehaviour
 
 
 
-
+    //all the transitions in question 
     public void TransSlide()
     {
         TransText.SetActive(true);
@@ -279,12 +279,12 @@ public class QuestControl : MonoBehaviour
         //only the cost of electricity
         if (four == false)
         {
-            yearlyCost = Volume * 1.6f;
+            yearlyCost = Volume * 2f; //1.6 for ele, 0.4 for water
         }
          //after long calc's (of electricity)
         //originally had cosat of water per year, but study shows it is recylable
         QuestResults.yearlyCost = yearlyCost;
-        float YearlyProduce = Volume * 3.9f * 0.7f * 3; //1x1 yeilds 3.9kg per year, capible of holding 3 sets per meter high
+        float YearlyProduce = Volume * 100 * 0.7f; //1x1 yeilds 3.9kg per year, capible of holding 3 sets per meter high
         float yield = YearlyProduce * produce;
         float yearlyGain = yield - yearlyCost;
         QuestResults.yearlyGain = yearlyGain;

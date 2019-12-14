@@ -5,17 +5,17 @@ using UnityEngine;
 public class BuildSystem : MonoBehaviour {
 
 
-    public Camera cam;//camera used for raycast
-    public LayerMask layer;//the layer that the raycast will hit on
+    public Camera cam;
+    public LayerMask layer;
 
-    private GameObject previewGameObject = null;//referance to the preview gameobject
-    private Preview previewScript = null;//the Preview.cs script sitting on the previewGameObject
+    private GameObject previewGameObject;
+    private Preview previewScript;
 
-    public float stickTolerance = 1.5f;//used for measuring deviation in the mouse when the buildSystem is paused
+    public float stickTolerance = 1.5f;
 
     [HideInInspector] //hiding this in inspector, so it doesnt accidently get clicked
-    public bool isBuilding = false;//are we or are we not currently trying to build something? 
-    private bool pauseBuilding = false;//used to pause the raycast
+    public bool isBuilding = false;
+    private bool pauseBuilding = false;
 
 
 
@@ -33,9 +33,9 @@ public class BuildSystem : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0) && isBuilding)//actually build the thing in the world
         {
-            if (previewScript.GetSnapped())//is the previewGameObject currently snapped to anything? 
+            if (previewScript.GetSnapped()) 
             {
-                StopBuild();//if so then stop the build and actually build it in the world
+                StopBuild();
             }
             else
             {
@@ -45,30 +45,23 @@ public class BuildSystem : MonoBehaviour {
 
         if (isBuilding)
         {
-            if (pauseBuilding)//is the build system currently paused? if so then you need to check deviation in the mouse 
+            if (pauseBuilding)
             {
-                float mouseX = Input.GetAxis("Mouse X");//get the mouses horizontal movement..these may be different on your copy of unity
-                float mouseY = Input.GetAxis("Mouse Y");//get the mouses vertical movement..these may be different on your copy of unity
+                float mouseX = Input.GetAxis("Mouse X");
+                float mouseY = Input.GetAxis("Mouse Y");
 
-                if (Mathf.Abs(mouseX) >= stickTolerance || Mathf.Abs(mouseY) >= stickTolerance)//check if mouseX or mouseY is greater than stickTolerance
+                if (Mathf.Abs(mouseX) >= stickTolerance || Mathf.Abs(mouseY) >= stickTolerance)
                 {
-                    pauseBuilding = false;//if it is, then unpause building, and call the raycast again
+                    pauseBuilding = false;
                 }
 
             }
-            else//if building system isn't paused then call the raycast
+            else
             {
                 DoBuildRay();
             }
         }
     }
-
-
-    /// <summary>
-    /// However you want to start building with the system. This is the method you would need to call
-    /// either from your Inventory, HotBar, or some other source.
-    /// You will need to pass in a referance to the previewGameObject that you want to build
-    /// </summary>
 
     public void NewBuild(GameObject _go)
     {
@@ -104,20 +97,11 @@ public class BuildSystem : MonoBehaviour {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);//raycast stuff
         RaycastHit hit;
 
-        if(Physics.Raycast(ray,out hit, 100f, layer))//notice the layer
+        if(Physics.Raycast(ray,out hit, 100f, layer))
         {
-            /*Since I am using unity primitives in this example I have to postion the previewGameobject in a special way, 
-             because of how unity positions things in the scene. If you brought something over from blender, and you have the 
-             anchor points setup correctly(located on bottom of model). You can use the line commented out below,
-             as opposed to the other lines*/
-            
-            //If your using unity primitives use these 3 lines
             float y = hit.point.y + (previewGameObject.transform.localScale.y / 2f);
             Vector3 pos = new Vector3(hit.point.x, y, hit.point.z);
             previewGameObject.transform.position = pos;
-            
-            //if your using something from blender and anchor points are setup correctly use this line
-            //previewGameObject.transform.position = hit.point;
         }
     }
 
